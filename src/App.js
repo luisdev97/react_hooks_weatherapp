@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Formulario from './components/Formulario';
 import Error from './components/Error';
+import ResultWeather from './components/ResultWeather';
 
 function App() {
 
@@ -39,7 +40,7 @@ function App() {
     city && getWeatherAPI();
   },[ city, country ]);
 
-  let component = validationError ? <Error messagge="All fields are required"/> : null;
+  let component = validationError ? <Error messagge="All fields are required"/> : <ResultWeather weatherData={ result }/>;
 
   return (
     <div className="App">
