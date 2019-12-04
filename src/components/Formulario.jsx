@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Form = () => {
+const Form = ({ dataSearch }) => {
 
 
     //State 
@@ -17,9 +17,15 @@ const Form = () => {
         });
     }
 
+    const getWeather = e =>{
+        e.preventDefault();
+        //set dataSearch to App.js
+        dataSearch(search);
+    }
+
     return (
 
-        <form >
+        <form onSubmit={ getWeather }>
 
         <div className="input-field col s12">
             <input type="text"
@@ -32,8 +38,8 @@ const Form = () => {
         <div className="input-field col s12">
 
             <select name="country" onChange={ handleChange }>
-                
-                <option value="">Selecciona un país</option>
+
+                <option value="">Select country</option>
                 <option value="US"> United States </option>
                 <option value="MX"> México </option>
                 <option value="UK"> United Kingdom </option>
